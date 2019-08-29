@@ -37,11 +37,34 @@
   </script>
 
   <!-- End GrowingIO Analytics code version: 2.1 -->
+
+
 </head>
 
 <body>
+
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>
+    function click(e, i) {
+      // 可以拿到相应的事件
+      // e.srcElement.onmousemove =function(){
+      //   console.log("xxx");
+        
+      // }
+
+      console.log("aaaa", e);
+    }
+    document.getElementById('root').addEventListener("DOMSubtreeModified", function () {
+      for (let i = 0; i < document.body.childNodes.length; i++) {
+        if (document.body.childNodes[i]) {
+          document.body.childNodes[i].addEventListener("click", click);
+      }
+        // console.log(document.body.childNodes[i]); // Text, DIV, Text, UL, ..., SCRIPT
+      }
+
+    }, false);
+  </script>
   <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
